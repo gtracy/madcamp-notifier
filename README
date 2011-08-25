@@ -1,0 +1,13 @@
+This project is used as a notification system for MadCamp. 
+
+Since the sessions are spread out all over the place, attendees can signup
+to receive text notifications about upcoming sessions. The data is read out
+of the Google spreadsheet used as the primary scheduling grid.
+
+In addition, attendees can text in feedback for each speaker that can be
+aggregated and presented in the browser or forwarded via email.
+
+This is an App Engine project written in Python and utilizes Twilio for 
+SMS communication and the GData API for Google Docs integration.
+
+What else should we do with this?

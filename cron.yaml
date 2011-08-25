@@ -1,0 +1,35 @@
+cron:
+- description: first time slot
+  url: /schedule/cron/4
+  schedule: every day 14:40
+  
+- description: second time slot
+  url: /schedule/cron/5
+  schedule: every day 15:29
+  
+- description: lunch time slot
+  url: /schedule/cron/6
+  schedule: every day 16:29
+  
+- description: third time slot
+  url: /schedule/cron/7
+  schedule: every day 17:29
+  
+- description: fourth time slot
+  url: /schedule/cron/8
+  schedule: every day 18:30
+  
+- description: fifth time slot
+  url: /schedule/cron/9
+  schedule: every day 19:30
+  
+- description: sixth time slot
+  url: /schedule/cron/10
+  schedule: every day 20:30
+  
+- description: mixer time slot
+  url: /schedule/cron/11
+  schedule: every day 21:30
+  
+  
+
