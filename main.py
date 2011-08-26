@@ -66,7 +66,7 @@ class CallHandler(webapp.RequestHandler):
 
 class CronHandler(webapp.RequestHandler):
 
-    def post(self,time_slot=""):
+    def get(self,time_slot=""):
         logging.debug('running cron for timeslot %s' % time_slot)
         if systemIsOn() is False:
             logging.error('bailing... the system is turned off')
@@ -78,13 +78,17 @@ class CronHandler(webapp.RequestHandler):
 
         # cycle over all the users and send them a message
         users = db.GqlQuery("select * from User").fetch(200)
+        if len(users) <= 0:
+            logging.error('No users in the system!')
+            
         for u in users:
             # send the SMS out with a background task
+            logging.debug('sending notifications to %s' % u.phone_number)
             task = Task(url='/sendsmstask', 
                         params={'phone':u.phone_number,
-                                'msg_one':msg_one,
-                                'msg_two':msg_two,
-                                'msg_three':msg_three,
+                                'msg_one':messages[0],
+                                'msg_two':messages[1],
+                                'msg_three':messages[2],
                                })
             task.add('smssender')
 
